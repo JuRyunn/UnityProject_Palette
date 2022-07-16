@@ -1,6 +1,8 @@
 # Unity game project
 <br>
+
 #### :pushpin: [기획](https://github.com/JuRyunn/Unity-Game-Project)
+
 <br>
 ### 테마 
 - 7가지 색상의 색조합을 통해 전투에서 승리하여 빼았긴 색상을 되찾아오자
