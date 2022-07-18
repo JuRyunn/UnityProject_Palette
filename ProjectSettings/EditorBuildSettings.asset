@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Palette Intro.unity
+    guid: 68529fab67d3a5f41830777e6ff5d323
   m_configObjects: {}
