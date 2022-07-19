@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TitleId: C710A
   DeveloperSecretKey: OWB81KNBUQGXSZBPXAAAAAHCJOQ1U9FOJSK9S3WPA88J6ACF91
-  ProductionEnvironmentUrl: 
-  RequestType: 2
+  ProductionEnvironmentUrl: .playfabapi.com
+  RequestType: 0
   DisableDeviceInfo: 0
   DisableFocusTimeCollection: 0
   RequestTimeout: 2000
