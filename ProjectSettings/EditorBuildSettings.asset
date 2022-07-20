@@ -14,4 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Palette game.unity
     guid: de58299c83234084eb12354e81333f4f
+  - enabled: 1
+    path: Assets/Scenes/Adventure.unity
+    guid: bc9cdb59dd440734e92c5c0ebbdbdca2
+  - enabled: 1
+    path: Assets/Scenes/Palette lobby.unity
+    guid: 998c94e9439f46049936e943c74b93d6
+  - enabled: 1
+    path: Assets/Scenes/Equip.unity
+    guid: b86459fe461a58240aea409c3dd9ec22
+  - enabled: 1
+    path: Assets/Scenes/Information.unity
+    guid: 59aa7b783a00a9648a8842ed3e3db93a
   m_configObjects: {}
