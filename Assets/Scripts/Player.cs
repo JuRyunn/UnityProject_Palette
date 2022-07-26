@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public VariableJoystick joy;
     public float speed;
+    
+    private PlayerAnimator playerAnimator;
 
     Rigidbody rigid;
     Animator anim;
@@ -15,12 +17,16 @@ public class Player : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+
+        playerAnimator = GetComponentInChildren<PlayerAnimator>();
     }
 
     private void FixedUpdate()
     {
         float x = joy.Horizontal;
         float z = joy.Vertical;
+
+        //playerAnimator.OnMovement(x, z);
 
         moveVec = new Vector3(x, 0, z) * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + moveVec);
@@ -31,6 +37,7 @@ public class Player : MonoBehaviour
         Quaternion dirQuat = Quaternion.LookRotation(moveVec);
         Quaternion moveQuat = Quaternion.Slerp(rigid.rotation, dirQuat, 0.3f);
         rigid.MoveRotation(moveQuat);
+
     }
 
     private void LateUpdate()
