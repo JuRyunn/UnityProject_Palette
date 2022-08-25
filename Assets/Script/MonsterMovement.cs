@@ -30,7 +30,7 @@ public class MonsterMovement : MonoBehaviour
     void MoveGoblin() // 몬스터가 타겟을 향해 이동하는 코드
     {
         // 타겟과의 거리가 10이상일 경우 이동
-        if((target.position - transform.position).magnitude >= 10)
+        if((target.position - transform.position).magnitude >= 2)
         {
             GoblinAni.SetBool("Walk", true);
             transform.Translate(Vector3.forward * GoblinSpeed * Time.deltaTime, Space.Self);
@@ -39,7 +39,9 @@ public class MonsterMovement : MonoBehaviour
         // 10이하일 경우 정지
         if((target.position - transform.position).magnitude < 10)
         {
+            GoblinAtk();
             GoblinAni.SetBool("Walk", false);
+           
         }
     }
 

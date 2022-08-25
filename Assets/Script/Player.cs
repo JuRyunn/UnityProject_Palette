@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public VariableJoystick joy;
     public float speed;
     public Button attack_button;
-    public GameObject Attack_Ray;
+    //public GameObject Attack_Ray;
    // public Button attack_and_shield_button;
    // public Button on_jump;
    // public Button on_jump_attack;
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
             Debug.Log(attack_bool);
             
             anim.SetTrigger("isattack01");
-            Attack_Ray.GetComponent<RayCast>().attack_raycast();
+            //Attack_Ray.GetComponent<RayCast>().attack_raycast();
         }
 
     }
