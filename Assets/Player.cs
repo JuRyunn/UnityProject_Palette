@@ -7,12 +7,15 @@ public class Player : MonoBehaviour
 {
     public VariableJoystick joy;
     public float speed;
-   // public Button attack_button;
+    public Button attack_button;
+    public GameObject Attack_Ray;
    // public Button attack_and_shield_button;
    // public Button on_jump;
    // public Button on_jump_attack;
     Rigidbody rigid;
     Animator anim;
+    public bool is_attack = false;
+    Ray ray;
     Vector3 moveVec;
 
     private void Awake()
@@ -22,9 +25,10 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
         move();
-     /*   attack_button.onClick.AddListener(() => attack_animator(true));
-        attack_and_shield_button.onClick.AddListener(() => attack_and_shield_animator(true));
+        attack_button.onClick.AddListener(() => attack_animator(true));
+     /*   attack_and_shield_button.onClick.AddListener(() => attack_and_shield_animator(true));
         on_jump.onClick.AddListener(() => jump_animator(true));
         on_jump_attack.onClick.AddListener(() => jump_attack_animator(true));*/
 
@@ -58,10 +62,15 @@ public class Player : MonoBehaviour
     {
         if (attack_bool)
         {
+            is_attack = true;
+            Debug.Log(attack_bool);
+            
             anim.SetTrigger("isattack01");
+            Attack_Ray.GetComponent<RayCast>().attack_raycast();
         }
 
     }
+    
     void attack_and_shield_animator(bool attack_and_shield)
     {
         if (attack_and_shield)
