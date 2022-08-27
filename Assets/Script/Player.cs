@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
+    private SpriteRenderer spriteRenderer; // JHCODE
+
     public VariableJoystick joy;
     public float speed;
     public Button attack_button;
@@ -22,6 +25,9 @@ public class Player : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>(); // JHCODE
+        //base.Setup(); // JHCODE
     }
     private void FixedUpdate()
     {
@@ -33,6 +39,7 @@ public class Player : MonoBehaviour
         on_jump_attack.onClick.AddListener(() => jump_attack_animator(true));*/
 
     }
+
 
 
     private void LateUpdate()
