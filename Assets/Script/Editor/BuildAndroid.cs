@@ -12,15 +12,15 @@ public class BuildAndroid
     private const string ARCHIVE_PATH = "../Bin/Android/";
  
 
-    [MenuItem("Build/Build_Android")]
+    [MenuItem("Build/Build_Android_DEV")] //리비전과 호스트 이름 붙임
     public static void Build_Android()
     {
         string output;
         string hostname = "";
         string revision = "";
-        string APK_PATH = Path.Combine(Application.dataPath, ARCHIVE_PATH);
-
-       int i = 0;
+        string APK_PATH = Path.Combine(Application.dataPath, ARCHIVE_PATH, "DEV/");
+   
+        int i = 0;
         using (Process process = new Process())
         {
             process.StartInfo.FileName = Path.Combine(Application.dataPath, "../Batch_Script/Git_Revision.bat");
@@ -55,7 +55,7 @@ public class BuildAndroid
             Directory.CreateDirectory(APK_PATH);
         }
       
-        string fileName = SetPlayerSettingsForAndroid(hostname, revision);
+        string fileName = SetPlayerSettingsForAndroid(hostname, revision, "DEV");
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
         string apk_path = APK_PATH + fileName;
         buildPlayerOptions.locationPathName = apk_path;
@@ -65,6 +65,30 @@ public class BuildAndroid
 
     }
 
+    [MenuItem("Build/Build_Android_LIVE")] //리비전과 호스트 이름 안붙임
+    public static void Build_Android_LIVE()
+    {
+        string output;
+        string APK_PATH = Path.Combine(Application.dataPath, ARCHIVE_PATH, "LIVE/");
+
+        if (Directory.Exists(APK_PATH))
+        {
+            DeleteDirectory(APK_PATH);
+        }
+        else
+        {
+            Directory.CreateDirectory(APK_PATH);
+        }
+
+        string fileName = SetPlayerSettingsForAndroid("", "", "LIVE");
+        BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
+        string apk_path = APK_PATH + fileName;
+        buildPlayerOptions.locationPathName = apk_path;
+        buildPlayerOptions.scenes = GetBuildSceneList();
+        buildPlayerOptions.target = BuildTarget.Android;
+        BuildPipeline.BuildPlayer(buildPlayerOptions);
+
+    }
     private static string[] GetBuildSceneList()
     {
         EditorBuildSettingsScene[] scene = UnityEditor.EditorBuildSettings.scenes;
@@ -79,10 +103,18 @@ public class BuildAndroid
         return listScenePath.ToArray();
     }
 
-    private static string SetPlayerSettingsForAndroid(string hostname, string revision)
+    private static string SetPlayerSettingsForAndroid(string hostname, string revision, string Branch)
     {
         PlayerSettings.Android.targetArchitectures = AndroidArchitecture.All;
-        string fileName = string.Format("{0}_{1}_{2}.apk", APP_NAME, revision, hostname);
+        string fileName = "";
+        if (Branch == "DEV")
+        {
+            fileName = string.Format("{0}_r{1}_{2}.apk", APP_NAME, revision, hostname);
+        }
+        else
+        {
+            fileName = string.Format("{0}.apk", APP_NAME);
+        }
         return fileName;
     }
 
