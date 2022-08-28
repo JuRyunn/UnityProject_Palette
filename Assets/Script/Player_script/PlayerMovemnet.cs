@@ -38,18 +38,7 @@ public class PlayerMovemnet : MonoBehaviour
     {
         if (btn == 0)
         {
-            
             anim.Basic_Attack(true);
         }
-        else
-        {
-            anim.Basic_Attack(false);
-        }
-           
     }
-   
-
-
-
-
 }

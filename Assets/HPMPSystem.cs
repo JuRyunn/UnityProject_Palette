@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class HPMPSystem : MonoBehaviour
 {
     private Stats stats;
-    public Player target;
+    public PlayerMovemnet target;
 
     public float HP 
     {
