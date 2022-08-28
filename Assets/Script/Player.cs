@@ -44,7 +44,8 @@ public class Player : MonoBehaviour
 
     private void LateUpdate()
     {
-        anim.SetFloat("Move", moveVec.sqrMagnitude);
+        anim.SetFloat("isWalking", moveVec.sqrMagnitude);
+
     }
 
     void move()
