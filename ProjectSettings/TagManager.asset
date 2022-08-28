@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - FlythroughCam
+  - JoyStick
   layers:
   - Default
   - TransparentFX
