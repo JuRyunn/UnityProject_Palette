@@ -30,14 +30,6 @@ public class PlayerMovemnet : MonoBehaviour
         else
         {
             anim.Walk(false);
-        }
-        InputUiBtn(-1);
-    }
-
-    public void InputUiBtn(int btn) 
-    {
-        if (btn == 0)
-        {
             anim.Basic_Attack(true);
         }
     }
